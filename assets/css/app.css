@@ -48,12 +48,17 @@ span.oren {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
     transition: background-color 0.5s ease;
     transition: color 0.75s ease;
 }
 
 .tombol:hover {
     cursor: pointer;
+}
+
+img {
+    user-select: none;
 }
 
 /* === Header Start === */
@@ -98,6 +103,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 10;
+    user-select: none;
 }
 
 nav a {
