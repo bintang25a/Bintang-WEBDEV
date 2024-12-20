@@ -104,6 +104,9 @@ nav a {
     width: 10%;
     height: 25px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-weight: 800;
     transition: background-color 0.5s ease;
