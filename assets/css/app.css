@@ -52,6 +52,10 @@ span.oren {
     transition: color 0.75s ease;
 }
 
+.tombol:hover {
+    cursor: pointer;
+}
+
 /* === Header Start === */
 header {
     background-color: var(--grayOuter);
@@ -116,6 +120,7 @@ nav a {
 nav a:hover {
     background-color: white;
     color: var(--secondary);
+    cursor: pointer;
 }
 /* === Navbar End === */
 
