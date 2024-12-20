@@ -1,0 +1,64 @@
+:root {
+    --primary: #097cff;
+    --secondary: #ff914d;
+    --grayInner: #A9A9A9;
+    --grayOuter: #696969;
+}
+
+main .social {
+    height: 80vh;
+    width: 100%;
+    border-bottom: 2px solid var(--grayOuter);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+main .social h2 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+main .social .socialContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main .social .socialContent a {
+    width: 450px;
+    padding: 10px;
+    font-size: 2.5rem;
+    color: var(--grayOuter);
+    border-bottom: 2px solid var(--grayOuter);
+    transition: color 0.5s ease;
+}
+
+main .social .socialContent a:hover {
+    color: var(--primary);
+}
+
+
+/* Tampilan Mobile */
+@media screen and (max-width: 768px) {
+    main .social h2 {
+        font-size: 2rem;
+    }
+
+    main .social .socialContent a {
+        width: 320px;
+        font-size: 1.5rem;
+    }
+
+    @media (orientation: landscape) {
+        main .social .socialContent a {
+            width: 240px;
+            font-size: 1.25rem;
+        }
+    }
+}
