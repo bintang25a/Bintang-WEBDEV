@@ -1,0 +1,279 @@
+:root {
+    --primary: #097cff;
+    --secondary: #ff914d;
+    --grayInner: #A9A9A9;
+    --grayOuter: #696969;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+span.biru {
+    color: var(--primary);
+    text-shadow: 5px 5px 10px var(--grayOuter);
+}
+
+span.oren {
+    color: var(--secondary);
+    text-shadow: 5px 5px 10px var(--grayOuter);
+}
+
+.home h2 {
+    text-shadow: 5px 5px 10px var(--grayInner);
+}
+
+.tombol {
+    width: 80px;
+    height: 30px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px var(--primary);
+    font-size: 75%;
+    font-weight: 600;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+    transition: color 0.75s ease;
+}
+
+/* === Header Start === */
+header {
+    background-color: var(--grayOuter);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 500px;
+}
+
+header .tombolArea {
+    display: flex;
+    gap: 20px;
+}
+
+header .tombolArea .tombol {
+    background-color: white;
+}
+
+header .tombolArea .tombol:hover {
+    background-color: var(--primary);
+    color: white;
+}
+/* === Header End === */
+
+
+/* === Navbar Start === */
+nav {
+    background-color: var(--secondary);
+    height: 50px;
+    box-shadow: 5px 5px 5px var(--primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 150px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px var(--primary);
+    width: 10%;
+    height: 25px;
+    color: white;
+    text-align: center;
+    font-weight: 800;
+    transition: background-color 0.5s ease;
+    transition: color 0.5s ease;
+}
+
+nav a:hover {
+    background-color: white;
+    color: var(--secondary);
+}
+/* === Navbar End === */
+
+
+/* === Main Start === */
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0 200px;
+}
+
+main .home {
+    height: 90vh;
+    border-bottom: 2px solid var(--grayOuter);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px;
+    padding: 20px;
+    scroll-margin-top: 50px;
+}
+
+main .home article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+main .home h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+main .home p {
+    font-size: 1rem;
+    color: var(--grayOuter);
+    text-align: justify;
+}
+
+main .home img {
+    width: 400px;
+    height: 400px;
+}
+/* === Main End === */
+
+
+/* === Footer Start === */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
+}
+/* === Footer End === */
+
+
+/* Tampilan Tablet */
+@media screen and (max-width: 1152px) {
+    nav {
+        padding: 0;
+    }
+
+    nav a {
+        width: 120px;
+        font-size: 0.875rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        padding: 0 50px;
+    }
+
+    main .home {
+        flex-direction: column-reverse;
+    }
+
+    main .home h2 {
+        font-size: 2rem;
+    }
+
+    main .home img {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+/* Tampilan Mobile */
+@media screen and (max-width: 768px) {
+    header img {
+        width: 350px;
+    }
+
+    header .tombol {
+        display: none;
+    }
+
+    nav {
+        padding: 0;
+    }
+
+    nav a {
+        background-color: var(--secondary);
+        border: none;
+        box-shadow: none;
+        font-size: 0.75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main {
+        padding: 0 20px;
+    }
+
+    main .home {
+        flex-direction: column-reverse;
+    }
+
+    main .home h2 {
+        font-size: 1.75rem;
+    }
+
+    main .home img {
+        width: 200px;
+        height: 200px;
+    }
+
+    @media (orientation: landscape) {
+        header img {
+            width: 350px;
+        }
+    
+        main {
+            padding: 0 20px;
+        }
+    
+        main .home {
+            flex-direction: row;
+        }
+    
+        main .home h2 {
+            font-size: 1.75rem;
+        }
+    
+        main .home p {
+            font-size: 0.75rem;
+        }
+    
+        main .home img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
