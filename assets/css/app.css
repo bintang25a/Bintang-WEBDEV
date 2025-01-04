@@ -209,7 +209,7 @@ nav .nav-reguler {
     align-items: center;
 }
 
-.nav-reguler #navbar {
+.nav-reguler .navbar {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -278,14 +278,14 @@ nav .nav-aside {
     width: 100%;
 }
 
-.nav-aside #navbar {
+.nav-aside .navbar {
     padding: 10px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.nav-aside #navbar a {
+.nav-aside .navbar a {
     height: 50px;
     flex-shrink: 0;
     display: flex;
@@ -302,7 +302,7 @@ nav .nav-aside {
     z-index: 5;
 }
 
-.nav-aside #navbar a:hover {
+.nav-aside .navbar a:hover {
     color: var(--grayOuter);
 }
 /* === Navbar End === */

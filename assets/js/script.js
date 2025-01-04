@@ -1,7 +1,7 @@
 const navArea = document.querySelector('nav');
 const navReguler = navArea.querySelector('.nav-reguler');
 const navAside = navArea.querySelector('.nav-aside');
-const navbar = navArea.querySelector('#navbar');
+const navbar = navArea.querySelector('.navbar');
 const navMenuButton = document.querySelector('.aside-button');
 const navProfil = navArea.querySelector('.profil');
 

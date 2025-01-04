@@ -37,12 +37,12 @@
         <div class="nav-img"><img src="assets/img/Logo_BW 7x5.png" alt="Logo"></div>
 
         <div class="nav-reguler">
-            <div id="navbar">
+            <div class="navbar">
                 <a onclick="scrollSection('home')">Home</a>
                 <a onclick="scrollSection('blog')">Blog</a>
                 <a onclick="scrollSection('games')">Games</a>
                 <a onclick="scrollSection('social')">Social</a>
-                <a onclick="scrollSection('comment')">Feedback</a>
+                <a onclick="scrollSection('comments')">Feedback</a>
             </div>
 
             <div class="profil">
@@ -55,8 +55,6 @@
 
         <button class="aside-button"><i class="fas fa-align-justify"></i></button>
     </nav>
-
-    
 
     <main>
         <section class="home" id="about">
@@ -231,7 +229,7 @@
             </div>
         </section>
 
-        <section class="comment" id="comment">
+        <section class="comment" id="comments">
             <h2>Kolom Komentar</h2>
 
             <div class="comment-container">
@@ -239,7 +237,6 @@
                     <input type="text" id="name" placeholder="Masukkan nama" required>
                     <textarea id="comment" rows="4" placeholder="Masukkan komentar" required></textarea>
                     <a class="tombol" onclick="addComment()">Tambah Komentar</a>
-                    <!-- <button onclick="addComment()">Tambah Komentar</button> -->
                 </div>
     
                 <div class="comment-section" id="commentSection"></div>

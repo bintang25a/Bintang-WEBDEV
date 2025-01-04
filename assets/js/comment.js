@@ -99,6 +99,6 @@ function deleteComment(index) {
     htmlCommentStyle()
 }
 
-  // Tampilkan komentar saat halaman dimuat
+// Tampilkan komentar saat halaman dimuat
 window.onload = displayComments;
 htmlCommentStyle();
