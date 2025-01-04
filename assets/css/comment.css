@@ -21,6 +21,7 @@ main .comment {
 
 .comment h2 {
     font-size: var(--clamp-h2);
+    text-align: center;
 }
 
 .comment .tombol {

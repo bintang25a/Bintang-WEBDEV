@@ -142,10 +142,31 @@ async function editComment(commentId) {
     }
 }
 
+// fungsi klik untuk uplaod komentar
 document.querySelector('.comment-form .tombol').addEventListener('click', function(e) {
     e.preventDefault();
     addComment();
 });
+
+// fungsi touch untuk mengecek apakah elemen sudah discroll penuh
+const commentSectionScroll = document.getElementById('commentSection');
+commentSectionScroll.addEventListener('touchstart', (e) => {
+    const { scrollTop, scrollHeight, clientHeight} = commentSectionScroll;
+
+    if (scrollTop === 0) {
+         commentSectionScroll.scrollTop = 1;
+    }
+    else if (scrollTop + clientHeight === scrollHeight) {
+        commentSectionScroll.scrollTop -= 1;
+    }
+});
+
+// fungsi touch untuk mencegah scroll pada halaman utama
+commentSectionScroll.addEventListener('touchmove', (e) => {
+    if (commentSectionScroll.scrollHeight > commentSectionScroll.clientHeight) {
+        e.stopPropagation();
+    }
+}, {passive: false});
 
 // menampilkan komentar saat halaman dimuat
 window.onload = displayComments;
