@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/blog.css">
     <link rel="stylesheet" href="assets/css/games.css">
     <link rel="stylesheet" href="assets/css/social.css">
+    <link rel="stylesheet" href="assets/css/comment.css">
 
     <title>Bintang WEBDEV</title>
 </head>
@@ -26,22 +27,41 @@
     <header id="home">
         <img src="assets/img/Logo_BWText.png" alt="Logo-Text"  id="beranda">
 
-        <div class="tombolArea">
+        <div class="tombol-area">
             <a class="tombol" onclick="scrollSection('about')">About</a>
             <a class="tombol" onclick="scrollSection('social')">Scroll Down</a>
         </div>
     </header>
 
     <nav>
-        <a onclick="scrollSection('home')">Home</a>
-        <a onclick="scrollSection('home')">Portofolio</a>
-        <a onclick="scrollSection('blog')">Blog</a>
-        <a onclick="scrollSection('games')">Games</a>
-        <a onclick="scrollSection('social')">Social</a>
+        <div class="nav-img"><img src="assets/img/Logo_BW 7x5.png" alt="Logo"></div>
+
+        <div class="nav-reguler">
+            <div id="navbar">
+                <a onclick="scrollSection('home')">Home</a>
+                <a onclick="scrollSection('blog')">Blog</a>
+                <a onclick="scrollSection('games')">Games</a>
+                <a onclick="scrollSection('social')">Social</a>
+                <a onclick="scrollSection('comment')">Feedback</a>
+            </div>
+
+            <div class="profil">
+                <h3>BINTANG AL FIZAR</h3>
+                <div class="profil-img"><img src="assets/img/Bintang Al Fizar.png" alt="Foto Bintang"></div>
+            </div>
+        </div>
+
+        <aside class="nav-aside"></aside>
+
+        <button class="aside-button"><i class="fas fa-align-justify"></i></button>
     </nav>
+
+    
 
     <main>
         <section class="home" id="about">
+            <img src="assets/img/Logo_BW.png" alt="Logo">
+
             <article>
                 <h2>Bintang <span class="biru">WEB</span><span class="oren">DEV</span></h2>
                 <p>
@@ -49,63 +69,76 @@
                     Website Bintang WEBDEV merupakan proyek pribadi saya. Website ini akan diisi dengan beberapa konten terkait saya, seperti Portofolio, Blog, dan juga Games yang saya suka mainkan. Halaman web ini merupakan halaman utama dari Bintang WebDev. Ikuti kegiatan saya  dalam membuat proyek pada laman web ini!
                 </p>
             </article>
-
-            <img src="assets/img/Logo_BW.png" alt="Logo">
         </section>
 
         <section class="blog" id="blog">
-            <h2>BLOG PRIBADI</h2>
+            <h2>BLOG</h2>
 
-            <a class="arrowL"><i class="fas fa-chevron-left"></i></a>
+            <div class="blog-carousel">
+                <div class="blog-card">
+                    <div class="button-area"><a class="arrowL"><i class="fas fa-chevron-left"></i></a></div>
 
-            <article class="blogCard">
-                <h3>3 tahun (ingame) bermain dinkum, berikut penampakan MAP saya! - GAMES</h3>
-                <div class="blogContent">
-                    <div class="content-img"><img src="assets/img/blogs/blog-dinkumMap.png" alt="gambar"></div>
-                    <p>
-                        Ketika melihat catatan waktu bermain di Steam, saya terkejut sekaligus bangga melihat angka 447 jam terpampang di sana. Ya, itulah jumlah waktu yang sudah saya habiskan untuk bermain Dinkum, game bergenre simulasi yang berhasil mencuri hati saya sejak pertama kali mencobanya.
-                    </p>
+                    <article>
+                        <h3>3 tahun (ingame) bermain dinkum, berikut penampakan MAP saya! - GAMES</h3>
+                        <div class="blog-content">
+                            <div class="content-img"><img src="assets/img/blogs/blog-dinkumMap.png" alt="gambar"></div>
+                            <p>
+                                Ketika melihat catatan waktu bermain di Steam, saya terkejut sekaligus bangga melihat angka 447 jam terpampang di sana. Ya, itulah jumlah waktu yang sudah saya habiskan untuk bermain Dinkum, game bergenre simulasi yang berhasil mencuri hati saya sejak pertama kali mencobanya.
+                            </p>
+                        </div>
+    
+                        <a class="tombol" href="">Read More</a>
+                    </article>
+                    <div class="button-area"><a class="arrowR"><i class="fas fa-chevron-right"></i></a></div>
                 </div>
+                
+                <div class="blog-card">
+                    <div class="button-area"><a class="arrowL"><i class="fas fa-chevron-left"></i></a></div>
 
-                <a class="tombol" href="">Read More</a>
-            </article>
+                    <article>
+                        <h3>Mencoba GYM untuk pertama kalinya - OLAHRAGA</h3>
+                        <div class="blog-content">
+                            <div class="content-img"><img src="assets/img/blogs/blog-GYMActivities.jpg" alt="gambar"></div>
+                            <p>
+                                Pertama kali saya pergi ke GYM, lokasinya adalah GYM di FT. Tempatnya memang tidak terlalu besar, bahkan terbilang cukup kecil dan sempit. Namun, ukurannya ternyata cukup untuk menampung banyak teman-teman saya yang juga berolahraga di sana. 
+                            </p>
+                        </div>
+    
+                        <a class="tombol" href="">Read More</a>
+                    </article>
 
-            <article class="blogCard blogCardOff">
-                <h3>Mencoba GYM untuk pertama kalinya - OLAHRAGA</h3>
-                <div class="blogContent">
-                    <div class="content-img"><img src="assets/img/blogs/blog-GYMActivities.jpg" alt="gambar"></div>
-                    <p>
-                        Pertama kali saya pergi ke GYM, lokasinya adalah GYM di FT. Tempatnya memang tidak terlalu besar, bahkan terbilang cukup kecil dan sempit. Namun, ukurannya ternyata cukup untuk menampung banyak teman-teman saya yang juga berolahraga di sana. 
-                    </p>
+                    <div class="button-area"><a class="arrowR"><i class="fas fa-chevron-right"></i></a></div>
                 </div>
+                
+                <div class="blog-card">
+                    <div class="button-area"><a class="arrowL"><i class="fas fa-chevron-left"></i></a></div>
 
-                <a class="tombol" href="">Read More</a>
-            </article>
+                    <article>
+                        <h3>Kegiatan Membersihkan ruangan Core IT yang kumuh - CORE IT</h3>
+                        <div class="blog-content">
+                            <div class="content-img"><img src="assets/img/blogs/blog-CoreIT.jpg" alt="gambar"></div>
+                            <p>
+                                Ruangannya kumuh, panas, galayak disinggahi sebagai basecamp. Saran untuk Core IT yaitu tambah pendinginan apake gitu yang bagus.
+                            </p>
+                        </div>
+    
+                        <a class="tombol" href="">Read More</a>
+                    </article>
 
-            <article class="blogCard blogCardOff">
-                <h3>Kegiatan Membersihkan ruangan Core IT yang kumuh - CORE IT</h3>
-                <div class="blogContent">
-                    <div class="content-img"><img src="assets/img/blogs/blog-CoreIT.jpg" alt="gambar"></div>
-                    <p>
-                        Ruangannya kumuh, panas, galayak disinggahi sebagai basecamp. Saran untuk Core IT yaitu tambah pendinginan apake gitu yang bagus.
-                    </p>
+                    <div class="button-area"><a class="arrowR"><i class="fas fa-chevron-right"></i></a></div>
                 </div>
-
-                <a class="tombol" href="">Read More</a>
-            </article>
-
-            <a class="arrowR"><i class="fas fa-chevron-right"></i></a>
+            </div>
 
             <script src="assets/js/blog.js"></script>
         </section>
 
         <section class="games" id="games">
-            <h2>My Games</h2>
+            <h2>GAMES</h2>
             
-            <div class="gamesContent">
-                <div class="gamesCard">
+            <div class="games-container">
+                <div class="games-card">
                     <a href="https://www.minecraft.net/" target="_blank"><img src="assets/img/games/game-Minecraft.png" alt="Minecraft"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Minecraft</h3>
                         <p>
                             Salah satu game sandbox terbaik yang pernah saya mainkan....
@@ -113,9 +146,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://www.playdinkum.com/" target="_blank"><img src="assets/img/games/game-Dinkum.webp" alt="Dinkum"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Dinkum</h3>
                         <p>
                             Dinkum menjadi salah satu game Simulasi Life terbaik yang pernah mainkan.
@@ -123,9 +156,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://genshin.hoyoverse.com/" target="_blank"><img src="assets/img/games/game-Genshin Impact.webp" alt="Genshin Impact"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Genshin Impact</h3>
                         <p>
                             Game RPG Pertama saya, salah satu game gactha pertama juga. Awal main di laptop kentankk
@@ -133,9 +166,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://www.paradoxinteractive.com/games/cities-skylines/about" target="_blank"><img src="assets/img/games/game-Cities Skylines.jpg" alt="Cities Skylines"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Cities Skylines</h3>
                         <p>
                             Cities skylines adalah game membangun kota yang paling bagus, karena memiliki beberpa fitur rinci
@@ -143,9 +176,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/" target="_blank"><img src="assets/img/games/game-ETS2.jpg" alt="ETS2"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Euro Truck Simulator 2</h3>
                         <p>
                             ETS 2 merupakan game Simulasi mengemudi yang suka saya mainkan ketika ada waktu luang
@@ -153,9 +186,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://unknownworlds.com/" target="_blank"><img src="assets/img/games/game-Subnautica.png" alt="Subnautica"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Subnautica</h3>
                         <p>
                             Game survival story bawah laut terdebestt
@@ -163,9 +196,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://unknownworlds.com/" target="_blank"><img src="assets/img/games/game-Subnautica BZ.jpg" alt="Subnautica: BZ"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Subnautica: Below Zero</h3>
                         <p>
                             Game survival story bawah laut terdebestt, tpi sekarang ada daratannya
@@ -173,9 +206,9 @@
                     </div>
                 </div>
 
-                <div class="gamesCard">
+                <div class="games-card">
                     <a href="https://store.steampowered.com/app/387990/Scrap_Mechanic/" target="_blank"><img src="assets/img/games/game-Scrap Mechanic.png" alt="Scrap Mechanic"></a>
-                    <div class="gamesDesc">
+                    <div class="games-description">
                         <h3>Scrap Mechanic</h3>
                         <p>
                             Scrap Mechanic merupakan game sandbox mekanik terbaik, kita bisa membuat hal hal yang berbau mekanik di game ini
@@ -190,12 +223,29 @@
         <section class="social" id="social">
             <h2>Social Media</h2>
             
-            <div class="socialContent">
+            <div class="social-content">
                 <a href="https://www.linkedin.com/in/bintang-al-fizar-70b537317" target="_blank"><i class="fab fa-linkedin-in"></i> Bintang Al Fizar</a>
                 <a href="https://github.com/bintang25a" target="_blank"><i class="fab fa-github"></i> @bintang25a</a>
                 <a href="https://www.youtube.com/@bintangalfizar9749" target="_blank"><i class="fab fa-youtube"></i> Bintang Al Fizar</a>
                 <a href="https://www.instagram.com/bintang_alfizar_" target="_blank"><i class="fab fa-instagram"></i> @bintang_alfizar_</a>
             </div>
+        </section>
+
+        <section class="comment" id="comment">
+            <h2>Kolom Komentar</h2>
+
+            <div class="comment-container">
+                <div class="comment-form">
+                    <input type="text" id="name" placeholder="Masukkan nama" required>
+                    <textarea id="comment" rows="4" placeholder="Masukkan komentar" required></textarea>
+                    <a class="tombol" onclick="addComment()">Tambah Komentar</a>
+                    <!-- <button onclick="addComment()">Tambah Komentar</button> -->
+                </div>
+    
+                <div class="comment-section" id="commentSection"></div>
+            </div>
+            
+            <script src="assets/js/comment.js"></script>
         </section>
     </main>
 
