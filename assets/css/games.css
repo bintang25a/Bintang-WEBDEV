@@ -1,27 +1,15 @@
-:root {
-    --primary: #097cff;
-    --secondary: #ff914d;
-    --grayInner: #A9A9A9;
-    --grayOuter: #696969;
-}
-
 main .games {
-    height: 150vh;
+    min-height: 100vh;
     width: 100%;
-    border-bottom: 2px solid var(--grayOuter);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    scroll-margin-top: 50px;
 }
 
-main .games h2{
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-main .games .gamesContent {
+main .games-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,7 +18,7 @@ main .games .gamesContent {
     padding: 20px;
 }
 
-main .gamesCard {
+.games-card {
     background-color: var(--primary);
     width: 200px;
     height: 320px;
@@ -43,7 +31,7 @@ main .gamesCard {
     box-shadow: 5px 5px 10px var(--secondary);
 }
 
-main .gamesCard a {
+.games-card a {
     width: 180px;
     height: 180px;
     border: 2px solid var(--grayOuter);
@@ -51,86 +39,87 @@ main .gamesCard a {
     overflow: hidden;
 }
 
-main .gamesCard a:hover {
+main .games-card a:hover {
     opacity: 0.75;
 }
 
-main .gamesCard a img {
+main .games-card a img {
     width: 100%;
 }
 
-main .gamesCard .gamesDesc {
+.games-description {
     display: flex;
     flex-direction: column;
     color: white;
     gap: 5px;
 }
 
-.gamesDesc h3 {
+.games-description h3 {
     display: flex;
     flex-wrap: wrap;
     font-size: clamp(0.75rem, 1vw, 2rem);
     font-weight: 900;
 }
 
-.gamesDesc p {
+.games-description p {
     font-size: 0.625rem;
     font-weight: 400;
     text-align: justify;
 }
 
-main .games .tombol {
+.games .tombol {
     background-color: var(--grayOuter);
     border-color: var(--grayOuter);
     box-shadow: 2px 2px 2px var(--grayInner);
     color: white;
     transition: border-color 0.5s ease;
+    margin-bottom: 20px;
 }
 
-main .games .tombol:hover {
+.games .tombol:hover {
     background-color: var(--grayInner);
     border-color: var(--grayInner);
 }
 
 
 /* Tampilan Tablet */
-@media screen and (max-width: 1152px) {
-    main .games h2 {
+@media screen and (max-width: 960px) {
+    .games h2 {
         font-size: 2rem;
     }
 
-    main .games .gamesContent {
+    .games-container {
         gap: 10px;
     }
 
-    main .gamesCard {
+    .games-card {
         width: 180px;
         height: 288px;
         align-items: center;
         gap: 10px;
     }
 
-    main .gamesCard a {
+    .games-card a {
         width: 160px;
         height: 160px;
     }
 
-    main .gamesDesc h3 {
+    .games-description h3 {
         font-size: 1rem;
     }
 }
 
 /* Tampilan Mobile */
 @media screen and (max-width: 768px) {
-    main .games h2 {
+    .games h2 {
         font-size: 2rem;
     }
 
-    main .games .gamesContent {
+    .games-container {
         gap: 10px;
     }
 
-    main .gamesCard {
+    .games-card {
         width: 280px;
         height: 60px;
         flex-direction: row;
@@ -138,16 +127,16 @@ main .games .tombol:hover {
         gap: 10px;
     }
 
-    main .gamesCard a {
+    .games-card a {
         width: 50px;
         height: 50px;
     }
 
-    main .gamesDesc h3 {
+    .games-description h3 {
         font-size: 1rem;
     }
 
-    main .gamesDesc p {
+    .games-description p {
         display: none;
     }
 }

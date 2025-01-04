@@ -1,0 +1,145 @@
+main .comment {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 20px;
+}
+
+.comment-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comment h2 {
+    font-size: var(--clamp-h2);
+}
+
+.comment .tombol {
+    width: 100%;
+    background-color: white;
+    border-color: var(--grayOuter);
+    box-shadow: 2px 2px 2px var(--grayOuter);
+    color: var(--grayOuter);
+    transition: background-color 0.5s ease;
+    transition: border-color 0.125s ease;
+}
+
+.comment .tombol:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    box-shadow: 2px 2px 2px white;
+    color: white;
+}
+
+
+/* Comment container style Start */
+.comment-form {
+    min-width: 200px;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 250px;
+    background-color: var(--primary);
+    box-shadow: 3px 3px 5px var(--grayOuter);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.comment-form input, textarea {
+    min-width: 200px;
+    min-height: 30px;
+    max-width: 100%;
+    border: 2px solid var(--grayOuter);
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.comment-form textarea {
+    flex: 1;
+    max-width: 100%;
+    /* min-width: 100%; */
+    min-height: 50px;
+}
+
+.comment-section {
+    min-width: 200px;
+    min-height: 50px;
+    max-width: 100%;
+    max-height: 250px;
+    box-shadow: 3px 3px 5px var(--grayOuter);
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    overflow: auto;
+    flex: 1;
+}
+
+.comment-display {
+    min-height: fit-content;
+    background-color: var(--secondary);
+    box-shadow: 2px 2px 5px var(--grayOuter);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px;
+    padding-right: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.comment-display h3 {
+    font-size: var(--clamp-h3s);
+    color: white;
+}
+
+.comment-display p {
+    font-size: var(--clamp-p);
+    color: white;
+}
+
+.comment-display .actions {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background-color: var(--grayOuter);
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: 2px;
+}
+
+.actions button {
+    flex-grow: 1;
+    color: var(--grayOuter);
+    transition: background-color 0.5s ease;
+    transition: color 0.25s ease;
+}
+
+.actions button:hover {
+    background-color: var(--grayOuter);
+    color: white;
+}
+/* Comment container style End */
+
+
+/* Tampilan Tablet */
+@media screen and (max-width: 960px) {
+}

@@ -1,28 +1,16 @@
-:root {
-    --primary: #097cff;
-    --secondary: #ff914d;
-    --grayInner: #A9A9A9;
-    --grayOuter: #696969;
-}
-
 main .social {
-    height: 80vh;
+    height: auto;
     width: 100%;
-    border-bottom: 2px solid var(--grayOuter);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 50px 20px;
     position: relative;
 }
 
-main .social h2 {
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-main .social .socialContent {
+.social-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,35 +18,24 @@ main .social .socialContent {
     gap: 20px;
 }
 
-main .social .socialContent a {
-    width: 450px;
+.social-content a {
+    max-width: 600px;
+    min-width: 320px;
+    max-height: 100px;
+    min-height: 50px;
+    flex: 1;
     padding: 10px;
-    font-size: 2.5rem;
+    box-shadow: 2px 2px 5px var(--primary);
+    font-size: var(--clamp-h3);
     color: var(--grayOuter);
     border-bottom: 2px solid var(--grayOuter);
     transition: color 0.5s ease;
 }
 
-main .social .socialContent a:hover {
-    color: var(--primary);
+.social-content a:nth-child(even) {
+    box-shadow: 2px 2px 5px var(--secondary);
 }
 
-
-/* Tampilan Mobile */
-@media screen and (max-width: 768px) {
-    main .social h2 {
-        font-size: 2rem;
-    }
-
-    main .social .socialContent a {
-        width: 320px;
-        font-size: 1.5rem;
-    }
-
-    @media (orientation: landscape) {
-        main .social .socialContent a {
-            width: 240px;
-            font-size: 1.25rem;
-        }
-    }
+.social-content a:hover {
+    color: var(--primary);
 }

@@ -1,55 +1,68 @@
-:root {
-    --primary: #097cff;
-    --secondary: #ff914d;
-    --grayInner: #A9A9A9;
-    --grayOuter: #696969;
-}
-
 /* === Blog Area Start === */
 main .blog {
-    height: 90vh;
     width: 100%;
-    border-bottom: 2px solid var(--grayOuter);
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 50px 20px;
+    scroll-margin-top: 50px;
     position: relative;
-}
-
-main .blog .arrowL, .arrowR {
-    font-size: 3rem;
-    bottom: 38%;
-    transition: transform 0.5s ease;
-}
-
-main .blog .arrowL:hover, .arrowR:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-}
-
-main .blog .arrowL {
-    position: absolute;
-    left: -50px;
-}
-
-main .blog .arrowR {
-    position: absolute;
-    right: -50px;
-}
-
-main .blog h2 {
-    font-size: 3rem;
-    font-weight: 800;
+    overflow: hidden;
 }
 /* === Blog Area End === */
 
 
+/* === Blog Carousel Area Start === */
+.blog-carousel {
+    min-height: 360px;
+    max-height: 480px;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.blog .button-area {
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog .arrowL, .arrowR {
+    font-size: 3rem;
+    transition: opacity 0.5s ease;
+    transition: transform 0.5s ease;
+    color: var(--grayOuter);
+    text-shadow: 2px 2px 5px var(--primary);
+    display: none;
+}
+
+.blog .arrowL:hover, .arrowR:hover {
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+/* === Blog Carousel Area End === */
+
+
 /* === Blog Card Start === */
-main .blogCard {
-    height: 360px;
-    width: 800px;
+.blog-card {
+    min-width: 100%;
+    min-height: 100%;
+    flex-grow: 1;
+    display: flex; 
+    justify-content: center;
+    position: relative;
+}
+
+.blog-card article {
+    max-width: 960px;
+    min-width: 240px;
+    flex-shrink: 1;
     padding: 20px;
     border: 2px solid var(--grayOuter);
     border-radius: 10px;
@@ -58,36 +71,49 @@ main .blogCard {
     flex-direction: column;
     gap: 10px;
     position: relative;
-    transition: opacity 1s ease;
+    overflow: hidden;
+    z-index: 2;
 }
 
-main .blogCard .blogContent {
+.blog h3 {
+    font-size: var(--clamp-h3s);
+}
+
+.blog-content {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-main .blogCard .blogContent .content-img{
-    width: 480px;
-    height: 270px;
+.blog-content .content-img{
+    aspect-ratio: 16 / 9;
+    max-width: 512px;
+    min-width: 208px;
+    max-height: 288px;
+    min-height: 117px;
+    flex: 4;
+    display: flex;
     box-shadow: 2px 2px 5px var(--grayOuter);
 }
 
-main .blogCard .content-img img {
+.blog-content .content-img img {
     width: 100%;
 }
 
-main .blogCard .blogContent p {
+.blog article .blog-content p {
     flex: 1;
-    font-size: 1rem;
+    font-size: var(--clamp-p);
     text-align: justify;
     color: var(--grayOuter);
+    min-width: 200px;
+    height: 270px;
+    flex-grow: 1;
 }
 
-main .blogCardOff {
-    display: none;
-}
-
-main .blogCard .tombol {
+.blog article .tombol {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -95,157 +121,23 @@ main .blogCard .tombol {
     box-shadow: 2px 2px 2px var(--secondary);
 }
 
-main .blogCard .tombol:hover {
+.blog article .tombol:hover {
     background-color: var(--secondary);
     color: white;
 }
-/* === Blog Card Start === */
+/* === Blog Card End === */
 
 
 /* Tampilan Tablet */
-@media screen and (max-width: 1152px) {
-    main .blogCard {
-        width: 640px;
-        height: 420px;
-    }
-
-    main .blogCard h3 {
-        font-size: 0.875rem;
-    }
-
-    main .blogCard .blogContent {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    main .blogCard .blogContent p {
-        font-size: 1rem;
-    }
-
-    main .blogCard .blogContent .content-img{
-        width: 320px;
-        height: 180px;
-        box-shadow: 2px 2px 5px var(--grayOuter);
-    }
-
-    main .blog .arrowL, .arrowR {
-        font-size: 2.5rem;
-        bottom: 90px;
-        z-index: 5;
-        color: var(--secondary);
-    }
-
-    main .blog .arrowL:hover, .arrowR:hover {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    
-    main .blog .arrowL {
-        left: 75px;
-    }
-
-    main .blog .arrowR {
-        right: 75px;
-    }
-
-    main .blogCard .tombol {
-        bottom: 20px;
-        left: 50%;
-        transform: translate(-50%);
-    }
-}
-
-/* Tampilan Mobile */
-@media screen and (max-width: 768px) {
-    main .blog h2 {
-        font-size: 2rem;
-    }
-
-    main .blogCard {
-        width: 360px;
-        height: 420px;
-    }
-
-    main .blogCard h3 {
-        font-size: 0.75rem;
-    }
-
-    main .blogCard .blogContent {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    main .blogCard .blogContent p {
-        font-size: 0.75rem;
-    }
-
-    main .blogCard .blogContent .content-img{
-        width: 240px;
-        height: 135px;
-        box-shadow: 2px 2px 5px var(--grayOuter);
-    }
-
-    main .blog .arrowL, .arrowR {
-        font-size: 2.5rem;
-        bottom: 65px;
-        z-index: 5;
-        color: var(--secondary);
-    }
-
-    main .blog .arrowL:hover, .arrowR:hover {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    
-    main .blog .arrowL {
-        left: 50px;
-    }
-
-    main .blog .arrowR {
-        right: 50px;
-    }
-
-    main .blogCard .tombol {
-        bottom: 20px;
+@media screen and (max-width: 960px) {
+    .blog-card article .tombol {
+        bottom: 10px;
         left: 50%;
         transform: translate(-50%);
     }
 
-    @media (orientation: landscape) {
-        main .blogCard {
-            width: 520px;
-            height: 200px;
-        }
-    
-        main .blogCard .blogContent {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        main .blogCard .blogContent .content-img{
-            width: 192px;
-            height: 108px;
-            box-shadow: 2px 2px 5px var(--grayOuter);
-        }
-    
-        main .blogCard .blogContent p {
-            font-size: 0.625rem;
-        }
-    
-        main .blogCard .tombol {
-            bottom: 10px;
-            transform: scale(0.75);
-        }
-    
-        main .blog .arrowL {
-            left: 0px;
-        }
-    
-        main .blog .arrowR {
-            right: 0px;
-        }
+    .blog article .tombol {
+        width: 75px;
+        height: 25px;
     }
 }
