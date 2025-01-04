@@ -134,6 +134,7 @@ main .comment {
 }
 
 .actions button:hover {
+    cursor: pointer;
     background-color: var(--grayOuter);
     color: white;
 }

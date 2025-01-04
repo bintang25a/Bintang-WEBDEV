@@ -5,7 +5,7 @@ const navbar = navArea.querySelector('.navbar');
 const navMenuButton = document.querySelector('.aside-button');
 const navProfil = navArea.querySelector('.profil');
 
-//fungsi untuk berpindah section ketika elemen navbar diklik
+// fungsi untuk berpindah section ketika elemen navbar diklik
 function scrollSection(sectionId) {
     const targetElement = document.getElementById(sectionId);
     if (targetElement) {
@@ -14,7 +14,7 @@ function scrollSection(sectionId) {
     }
 }
 
-//fungsi untuk mengecek navbar keluar dari max width agar bisa responsive ke width device
+// fungsi untuk mengecek navbar keluar dari max width agar bisa responsive ke width device
 function navOverflow() {
     const isOverflow = navArea.scrollWidth > navArea.clientWidth;
 
@@ -35,7 +35,7 @@ function navOverflow() {
     return isOverflow;
 }
 
-//fungsi untuk toggle sidebar
+// fungsi untuk toggle sidebar
 let toggle = 0;
 function toggleNavAside() {
     toggle++;
@@ -47,18 +47,18 @@ function toggleNavAside() {
     navAside.style.transform = `translateX(${offset}%)`;
 }
 
-//fungsi klik untuk close sidebar ketika elemen diluarnya diklik
+// fungsi klik untuk close sidebar ketika elemen diluarnya diklik
 document.addEventListener('click', function(e) {
     const isInsideNavAside = navAside.contains(e.target);
     if (!isInsideNavAside && toggle == 0) toggleNavAside();
 });
 
-//fungsi klik untuk toggle sidebar
+// fungsi klik untuk toggle sidebar
 navMenuButton.addEventListener('click', function(e) {
     e.stopPropagation();
     toggleNavAside();
 });
 
-// toggleNavAside();
-navOverflow();
+// mengecek overflow pada nav ketika baru dimuat dan terjadi perubahan dimensi layar
+window.onload = navOverflow;
 window.addEventListener("resize", navOverflow);
