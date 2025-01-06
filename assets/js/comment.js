@@ -1,5 +1,48 @@
 import { getComments, saveComment, deleteCommentById, editCommentById } from "https://bintang-webdev-backend-server.vercel.app/private-backend/api-bridge.js";
 
+const SECRET_KEY = 'katty-momo-owen';  // Replace with your actual secret key
+
+// fungsi untuk menambahkan komentar baru
+async function addComment() {
+    const nameInput = document.getElementById("name");
+    const commentInput = document.getElementById("comment");
+
+    const name = nameInput.value.trim();
+    const text = commentInput.value.trim();
+
+    if (!name || !text) {
+        alert("Nama dan komentar harus diisi!");
+        return;
+    }
+
+    const newComment = { name, text };
+
+    // Kirim request dengan Authorization header
+    await fetch('https://bintang-webdev-backend-server.vercel.app/private-backend/api-bridge.js', {
+        method: 'POST',  // Atur metode request (POST untuk menambahkan data)
+        headers: {
+            'Authorization': `Bearer ${SECRET_KEY}`,  // Tambahkan header Authorization
+            'Content-Type': 'application/json'  // Set content type sebagai JSON
+        },
+        body: JSON.stringify(newComment)  // Body yang berisi data komentar dalam format JSON
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Gagal menambahkan komentar');
+        }
+        return response.json();
+    })
+    .then(() => {
+        nameInput.value = "";  // Reset form setelah komentar ditambahkan
+        commentInput.value = "";
+        displayComments();  // Panggil fungsi untuk menampilkan komentar terbaru
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Terjadi kesalahan saat menambahkan komentar");
+    });
+}
+
 // fungsi untuk toggle on/off area komentar
 async function htmlCommentStyle() {
     const comments = await getComments();
@@ -22,9 +65,23 @@ async function htmlCommentStyle() {
 // fungsi untuk menampilkan komentar di halaman
 async function displayComments() {
     const commentSection = document.getElementById("commentSection");
-    commentSection.innerHTML = "";
+    commentSection.innerHTML = "";  // Clear existing comments
 
-    const comments = await getComments();
+    // Fetch komentar dari backend API dengan Authorization header
+    const response = await fetch('https://bintang-webdev-backend-server.vercel.app/private-backend/api-bridge.js', {
+        method: 'GET',  // Atur metode request untuk mengambil data
+        headers: {
+            'Authorization': `Bearer ${SECRET_KEY}`  // Tambahkan Authorization header
+        }
+    });
+
+    if (!response.ok) {
+        console.error('Gagal mengambil komentar');
+        return;
+    }
+
+    const comments = await response.json();  // Ambil data komentar dari response
+
     comments.forEach((comment) => {
         const commentDiv = document.createElement("div");
         commentDiv.classList.add("comment-display");
@@ -38,95 +95,74 @@ async function displayComments() {
             </div>
         `;
 
-        // fungsi klik untuk edit komentar
-        const editBtn = commentDiv.querySelector(".comment-display .edit");
+        // Fungsi klik untuk edit komentar
+        const editBtn = commentDiv.querySelector(".edit");
         editBtn.addEventListener("click", () => {
             const newName = prompt("Edit nama:", comment.name);
             const newText = prompt("Edit komentar:", comment.text);
 
             if (newName !== null && newText !== null) {
-                editCommentById(comment.id, { name: newName, text: newText }).then(() => {
-                    displayComments();
+                // Kirim request untuk mengedit komentar dengan Authorization header
+                fetch(`https://bintang-webdev-backend-server.vercel.app/private-backend/api-bridge.js/${comment.id}`, {
+                    method: 'PUT',  // PUT untuk update data
+                    headers: {
+                        'Authorization': `Bearer ${SECRET_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name: newName, text: newText })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Gagal mengedit komentar');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    displayComments();  // Refresh komentar setelah berhasil diedit
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Terjadi kesalahan saat mengedit komentar");
                 });
             }
         });
 
-        // fungsi klik untuk delete komentar
-        const deleteBtn = commentDiv.querySelector(".comment-display .delete");
+        // Fungsi klik untuk delete komentar
+        const deleteBtn = commentDiv.querySelector(".delete");
         deleteBtn.addEventListener("click", () => {
             if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
-                deleteCommentById(comment.id).then(() => {
-                    displayComments();
+                // Kirim request untuk menghapus komentar dengan Authorization header
+                fetch(`/private-backend/api-bridge.js/${comment.id}`, {
+                    method: 'DELETE',  // DELETE untuk menghapus data
+                    headers: {
+                        'Authorization': `Bearer ${SECRET_KEY}`
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Gagal menghapus komentar');
+                    }
+                    return response.json();
+                })
+                .then(() => {
+                    displayComments();  // Refresh komentar setelah berhasil dihapus
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Terjadi kesalahan saat menghapus komentar");
                 });
             }
         });
 
         commentSection.appendChild(commentDiv);
     });
-
-    htmlCommentStyle();
 }
 
-// fungsi untuk menambahkan komentar baru
-async function addComment() {
-    const nameInput = document.getElementById("name");
-    const commentInput = document.getElementById("comment");
-
-    const name = nameInput.value.trim();
-    const text = commentInput.value.trim();
-
-    if (!name || !text) {
-        alert("Nama dan komentar harus diisi!");
-        return;
-    }
-
-    const newComment = { name, text };
-
-    await saveComment(newComment);
-    nameInput.value = "";
-    commentInput.value = "";
-    displayComments();
-}
-
-// fungsi untuk mengedit komentar
-async function editComment(commentId) {
-    const comments = await getComments();
-    const comment = comments.find((c) => c.id === commentId);
-
-    const newName = prompt("Edit nama:", comment.name);
-    const newText = prompt("Edit komentar:", comment.text);
-
-    if (newName !== null && newText !== null) {
-        await set(ref(db, `comments/${commentId}`), { name: newName, text: newText });
-        displayComments();
-    }
-}
-
-// fungsi klik untuk uplaod komentar
+// Event listener untuk menambah komentar
 document.querySelector('.comment-form .tombol').addEventListener('click', function(e) {
     e.preventDefault();
-    addComment();
+    addComment();  // Panggil fungsi untuk menambah komentar
 });
 
-// fungsi touch untuk mengecek apakah elemen sudah discroll penuh
-const commentSectionScroll = document.getElementById('commentSection');
-commentSectionScroll.addEventListener('touchstart', (e) => {
-    const { scrollTop, scrollHeight, clientHeight} = commentSectionScroll;
-
-    if (scrollTop === 0) {
-         commentSectionScroll.scrollTop = 1;
-    }
-    else if (scrollTop + clientHeight === scrollHeight) {
-        commentSectionScroll.scrollTop -= 1;
-    }
-});
-
-// fungsi touch untuk mencegah scroll pada halaman utama
-commentSectionScroll.addEventListener('touchmove', (e) => {
-    if (commentSectionScroll.scrollHeight > commentSectionScroll.clientHeight) {
-        e.stopPropagation();
-    }
-}, {passive: false});
-
-// menampilkan komentar saat halaman dimuat
+// Menampilkan komentar saat halaman dimuat
 window.onload = displayComments;
