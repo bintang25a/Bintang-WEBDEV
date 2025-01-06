@@ -1,4 +1,4 @@
-import { getComments, saveComment, deleteCommentById, editCommentById } from "https://bintang-webdev-backend-server.vercel.app/server.js";
+import { getComments, saveComment, deleteCommentById, editCommentById } from "https://bintang-webdev-backend-server.vercel.app/private-backend/api-bridge.js";
 
 // fungsi untuk toggle on/off area komentar
 async function htmlCommentStyle() {
